@@ -1,6 +1,5 @@
 #include <IRremote.hpp>
 
-
 const int detectPin = 2;
 const int statusPin = 4;
 
@@ -14,13 +13,54 @@ pinMode(statusPin, OUTPUT);
 irsend.enableIROut(38);
 
 irsend.mark(0);
-
+Serial.begin(9600);
 }
 
 void loop() {
 
-int LED_status = !digitalRead(detectPin);
+Serial.println("test");
+int LED_status = Library();
 digitalWrite(statusPin, LED_status);
 
 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int Library() {
+
+randomSeed(analogRead(0));
+delayMicroseconds(5000);
+return random(2);
 }
